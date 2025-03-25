@@ -1,3 +1,6 @@
+"""
+This module contains a function to get data from the Neo API.
+"""
 import streamlit as st
 import requests
 

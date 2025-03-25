@@ -1,3 +1,6 @@
+"""
+Test data module.
+"""
 from unittest import TestCase
 from data import get_data
 
