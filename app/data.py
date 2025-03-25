@@ -14,7 +14,12 @@ def get_data(date: str) -> dict:
     Returns:
         dict: Dictionary containing data from Neo API.
     """
-    api_key = os.environ["API_KEY"]
+    api_key = os.environ.get("API_KEY")
+
+    if not api_key:
+        st.warning("API key is not set. Using demo key.")
+        api_key = "DEMO_KEY"
+
     url = f"https://api.nasa.gov/neo/rest/v1/feed?start_date={date}&end_date={date}&api_key={api_key}"
 
     try:
