@@ -2,4 +2,4 @@
 
 https://near-earth-objects.streamlit.app/
 
-Streamlit app using NASA's Near Earth Objects API. Choose between scatterplot and table representations of the data.
+Streamlit app using NASA's Near Earth Object Web Service. Choose between scatterplot and table representations of daily near-Earth object data.
