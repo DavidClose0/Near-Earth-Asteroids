@@ -1,6 +1,7 @@
+import streamlit as st
 import requests
-import json
 
+@st.cache_data(ttl=60)  # Cache data for 1 minute
 def get_data(date: str) -> dict:
     """
     Gets data from Neo API for a given date.
@@ -15,9 +16,5 @@ def get_data(date: str) -> dict:
         data = requests.get(url, timeout=10).json()
         return data
     except Exception as e:
-        print(f"Error getting data: {e}")
+        st.error(f"Error getting data: {e}")
         return {}
-    
-data = get_data("2025-03-24")
-with open("app\data.json", "w") as f:
-    json.dump(data, f, indent=4)
