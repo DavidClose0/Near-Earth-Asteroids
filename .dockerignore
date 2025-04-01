@@ -1,0 +1,23 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Ignore python cache files
+** /__pycache__/
+**/*.py[cod]
+
+# Docker
+docker-compose.yml
+mysql-only.yml
+Dockerfile
+.docker
+.dockerignore
+
+# VS Code
+.vscode/
+
+# Virtual environment
+.env
+.venv/
+venv/
