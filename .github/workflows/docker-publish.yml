@@ -5,15 +5,12 @@ name: Docker
 # separate terms of service, privacy policy, and support
 # documentation.
 
+# Trigger when tests are completed
 on:
-  schedule:
-    - cron: '19 4 * * *'
-  push:
-    branches: [ "main" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
-  pull_request:
-    branches: [ "main" ]
+  workflow_run:
+    workflows: ['Python tests']
+    types:
+      - completed
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -32,6 +29,9 @@ jobs:
       # This is used to complete the identity challenge
       # with sigstore/fulcio when running outside of PRs.
       id-token: write
+
+    # Only run if tests were successful
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - name: Checkout repository
