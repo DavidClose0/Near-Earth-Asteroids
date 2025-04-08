@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8501
 
 # Define the default command to run when the container starts
-CMD ["streamlit", "run", "src/main.py"]
+CMD ["streamlit", "run", "src/app.py"]
