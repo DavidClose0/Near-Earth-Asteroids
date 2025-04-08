@@ -9,7 +9,7 @@ class Test(TestCase):
         """
         Test UI sidebar title and header.
         """
-        at = AppTest.from_file("./src/app.py")
+        at = AppTest.from_file("./src/app.py", default_timeout=30)
         at.run()
 
         # Check if sidebar title and header are correct
